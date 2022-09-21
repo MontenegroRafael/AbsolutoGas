@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32407.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbsolutoGas", "AbsolutoGas\AbsolutoGas.csproj", "{B69597EA-07C6-4575-8528-E7E99E8DC5B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{2EF03C1F-27B4-4654-B1EF-637E3B78C3DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B69597EA-07C6-4575-8528-E7E99E8DC5B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B69597EA-07C6-4575-8528-E7E99E8DC5B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B69597EA-07C6-4575-8528-E7E99E8DC5B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B69597EA-07C6-4575-8528-E7E99E8DC5B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EF03C1F-27B4-4654-B1EF-637E3B78C3DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF03C1F-27B4-4654-B1EF-637E3B78C3DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF03C1F-27B4-4654-B1EF-637E3B78C3DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EF03C1F-27B4-4654-B1EF-637E3B78C3DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BCBFA55-6AF6-42E3-A17F-A59597DDB821}
+	EndGlobalSection
+EndGlobal
