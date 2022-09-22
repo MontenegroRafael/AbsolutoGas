@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-//using Client.Models;
+using Client.Models;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Data;
@@ -40,5 +40,50 @@ namespace Client.Menu
             Console.WriteLine("|>>> [    ] - Listar Todos         | >>> [ 0  ] - Sair                 |");
             Console.WriteLine("|__________________________________|___________________________________|");
         }
+
+        public static void ClienteMostrarIdNome()
+        {
+
+            try
+            {
+                //string connection = @"Data Source=DESKTOP-IR1AB95;Initial Catalog=AbsolutoGas;Integrated Security=True;";//CASA
+                string connection = @"Data Source=ITELABD04\SQLEXPRESS;Initial Catalog=AbsolutoGas;Integrated Security=True;";//SENAC
+
+                List<Cliente> listarClientes = new List<Cliente>();
+
+                SqlDataReader resultado;
+                var query = "SELECT IdCliente, Nome, Telefone FROM Cliente ";
+
+                using (var sql = new SqlConnection(connection))
+                {
+                    SqlCommand command = new SqlCommand(query, sql);
+                    command.Connection.Open();
+                    resultado = command.ExecuteReader();
+
+
+                    while (resultado.Read())
+                    {
+                        listarClientes.Add(new Cliente(resultado.GetInt32(resultado.GetOrdinal("IdCliente")),
+                                                       resultado.GetString(resultado.GetOrdinal("Nome")),
+                                                       resultado.GetString(resultado.GetOrdinal("Telefone"))));
+                    }
+                }
+                Console.WriteLine("=====================================");
+                Console.WriteLine("======== Listagem de Clientes =======");
+                foreach (Cliente p in listarClientes)
+                {
+                    Console.WriteLine(" Id: " + p.IdCliente);
+                    Console.WriteLine(" Nome: " + p.Nome);
+                    Console.WriteLine(" Nome: " + p.Telefone);
+                    Console.WriteLine("---------------------------");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message);
+            }
+        }
+
+
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Client.Models
 {
-    class Cliente
+    public class Cliente
     {
         public int IdCliente { get; set; }
         public string Nome { get; set; }
@@ -32,6 +32,13 @@ namespace Client.Models
             Bairro = bairro;
             Cidade = cidade;
             Referencia = referencia;
+        }
+
+        public Cliente(int idCliente, string nome, string telefone)
+        {
+            IdCliente = idCliente;
+            Nome = nome;
+            Telefone = telefone;
         }
     }
 }

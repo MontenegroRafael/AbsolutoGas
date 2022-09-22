@@ -59,12 +59,25 @@ namespace Client
                     Console.WriteLine("Informe os dados do Cliente:");
                     Console.Write("Nome: ");
                     string Nome = Console.ReadLine();
-                    Console.Write("CNH: ");
-                    string Cnh = Console.ReadLine();
-                    Console.Write("Login de Cadastro: ");
-                    string LoginCadastro = Console.ReadLine();
+                    Console.Write("CPF: ");
+                    string CPF = Console.ReadLine();
+                    Console.Write("Data de Nascimento: ");
+                    DateTime DataNascimento = Convert.ToDateTime(Console.ReadLine());
+                    Console.Write("Telefone: ");
+                    string Telefone = Console.ReadLine();
+                    Console.Write("Rua: ");
+                    string Rua = Console.ReadLine();
+                    Console.Write("Número: ");
+                    string Numero = Console.ReadLine();
+                    Console.Write("Bairro: ");
+                    string Bairro = Console.ReadLine();
+                    Console.Write("Cidade: ");
+                    string Cidade = Console.ReadLine();
+                    Console.Write("Referencia: ");
+                    string Referencia = Console.ReadLine();
                     
-                    Cliente cliente = new Cliente(Nome, Cnh, LoginCadastro);
+                    Cliente cliente = new Cliente(Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia)
+);
 
                     clienteService.Salvar(cliente);
 
