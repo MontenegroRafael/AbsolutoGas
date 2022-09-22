@@ -2,10 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using AbsolutoGas.Dtos;
-using Dapper;
 
 namespace AbsolutoGas.Repositorios
 {
@@ -81,7 +79,7 @@ namespace AbsolutoGas.Repositorios
             ClienteDto clientesEncontrados;
             try
             {
-                var query = @"SELECT IdCliente, Nome, CNH, DataCadastro, LoginCadastro FROM Cliente
+                var query = @"SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia FROM Cliente
                                       WHERE Nome like CONCAT('%',@nome,'%')";
 
                 using (var connection = new SqlConnection(_connection))
@@ -108,7 +106,7 @@ namespace AbsolutoGas.Repositorios
         {
             try
             {
-                var query = @"UPDATE Cliente SET Nome = @nome, CNH = @cnh, DataAtualizacao = @dataAtualizacao, LoginCadastro = @loginCadastro 
+                var query = @"UPDATE Cliente SET Nome = @nome, CPF = @CPF, DataNascimento = @dataNascimento, Telefone = @telefone, Rua = @rua, Numero = @numero, Bairro = @bairro, Cidade = @cidade, Referencia = @referencia 
                                 WHERE IdCliente = @idCliente";
 
                 using (var sql = new SqlConnection(_connection))
@@ -116,9 +114,14 @@ namespace AbsolutoGas.Repositorios
                 {
                     SqlCommand command = new SqlCommand(query, sql);
                     command.Parameters.AddWithValue("@nome", cliente.Nome);
-                    command.Parameters.AddWithValue("@cnh", cliente.Cnh);
-                    command.Parameters.AddWithValue("@loginCadastro", cliente.LoginCadastro);
-                    command.Parameters.AddWithValue("@dataAtualizacao", cliente.DataAtualizacao);
+                    command.Parameters.AddWithValue("@CPF", cliente.CPF);
+                    command.Parameters.AddWithValue("@dataNascimento", cliente.DataNascimento);
+                    command.Parameters.AddWithValue("@telefone", cliente.Telefone);
+                    command.Parameters.AddWithValue("@rua", cliente.Rua);
+                    command.Parameters.AddWithValue("@numero", cliente.Numero);
+                    command.Parameters.AddWithValue("@bairro", cliente.Bairro);
+                    command.Parameters.AddWithValue("@cidade", cliente.Cidade);
+                    command.Parameters.AddWithValue("@referencia", cliente.Referencia);
                     command.Parameters.AddWithValue("@idCliente", idCliente);
                     command.Connection.Open();
                     command.ExecuteNonQuery();

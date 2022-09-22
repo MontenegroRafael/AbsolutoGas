@@ -1,14 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using AbsolutoGas.Models;
 using AbsolutoGas.Repositorios;
 using AbsolutoGas.ViewModels;
-using Dapper;
 
 namespace AbsolutoGas.Controllers
 {
