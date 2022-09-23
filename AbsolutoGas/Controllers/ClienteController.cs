@@ -39,17 +39,17 @@ namespace AbsolutoGas.Controllers
             return Ok("Adicionado com sucesso!");
         }
 
-        //[HttpGet]  // MOSTRAR LISTA DE CLIENTES
-        //public IActionResult BuscarTodos()
-        //{
-        //    var clientes = repositorioCliente.BuscarTodos();
+        [HttpGet]  // MOSTRAR LISTA DE CLIENTES
+        public IActionResult BuscarTodos()
+        {
+            var clientes = repositorioCliente.BuscarTodos();
 
-        //    if (clientes == null || !clientes.Any())
-        //        return NotFound(new { mensage = $"Lista vazia." });
+            if (clientes == null || !clientes.Any())
+                return NotFound(new { mensage = $"Lista vazia." });
 
-        //    return Ok(clientes);
+            return Ok(clientes);
 
-        //}
+        }
 
         [HttpPut]  // ATUALIZAR CLIENTE POR ID
         public IActionResult Atualizar(AtualizarClienteModel cliente)
