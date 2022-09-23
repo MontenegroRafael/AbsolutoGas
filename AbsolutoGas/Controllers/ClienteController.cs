@@ -58,18 +58,18 @@ namespace AbsolutoGas.Controllers
             return Ok(cEncontrado);
         }
 
-        //[HttpDelete]  // DELETAR CLIENTE POR NOME
-        //public IActionResult Remover(string nome)
-        //{
-        //    var cEncontrado = repositorioCliente.BuscarPorNome(nome);
+        [HttpDelete]  // DELETAR CLIENTE POR NOME
+        public IActionResult Remover(string nome)
+        {
+            var cEncontrado = repositorioCliente.BuscarPorNome(nome);
 
-        //    if (cEncontrado == null)
-        //        return NotFound("Não há nenhum registro com esse nome.");
+            if (cEncontrado == null)
+                return NotFound("Não há nenhum registro com esse nome.");
 
-        //    repositorioCliente.Remover(cEncontrado);
+            repositorioCliente.Remover(cEncontrado);
 
-        //    return Ok();
-        //}
+            return Ok();
+        }
 
     }
 }

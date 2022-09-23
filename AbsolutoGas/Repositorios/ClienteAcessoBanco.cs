@@ -49,58 +49,58 @@ namespace AbsolutoGas.Repositorios
 
         }
 
-        //public List<ClienteDto> BuscarTodos()
-        //{
-        //    List<ClienteDto> clientesEncontrados;
-        //    try
-        //    {
-        //        var query = @"SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia FROM Cliente";
+        public List<ClienteDto> BuscarTodos()
+        {
+            List<ClienteDto> clientesEncontrados;
+            try
+            {
+                var query = @"SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia FROM Cliente";
 
-        //        using (var connection = new SqlConnection(_connection))
-        //        {
+                using (var connection = new SqlConnection(_connection))
+                {
 
-        //            clientesEncontrados = connection.Query<ClienteDto>(query).ToList();
-        //        }
+                    clientesEncontrados = connection.Query<ClienteDto>(query).ToList();
+                }
 
-        //        return clientesEncontrados;
+                return clientesEncontrados;
 
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine("Erro: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message);
 
-        //        return null;
-        //    }
-        //}
+                return null;
+            }
+        }
 
-        //public ClienteDto BuscarPorNome(string nome)
-        //{
-        //    ClienteDto clientesEncontrados;
-        //    try
-        //    {
-        //        var query = @"SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia FROM Cliente
-        //                              WHERE Nome like CONCAT('%',@nome,'%')";
+        public ClienteDto BuscarPorNome(string nome)
+        {
+            ClienteDto clientesEncontrados;
+            try
+            {
+                var query = @"SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia FROM Cliente
+                                      WHERE Nome like CONCAT('%',@nome,'%')";
 
-        //        using (var connection = new SqlConnection(_connection))
-        //        {
-        //            var parametros = new
-        //            {
-        //                nome
-        //            };
-        //            clientesEncontrados = connection.QueryFirstOrDefault<ClienteDto>(query, parametros);
-        //        }
+                using (var connection = new SqlConnection(_connection))
+                {
+                    var parametros = new
+                    {
+                        nome
+                    };
+                    clientesEncontrados = connection.QueryFirstOrDefault<ClienteDto>(query, parametros);
+                }
 
-        //        return clientesEncontrados;
+                return clientesEncontrados;
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine("Erro: " + ex.Message);
-        //        return null;
-        //    }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message);
+                return null;
+            }
 
-        //}
+        }
 
         public bool Atualizar(int idCliente, Cliente cliente)
         {
