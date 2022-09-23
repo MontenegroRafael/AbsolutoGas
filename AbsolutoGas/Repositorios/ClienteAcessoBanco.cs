@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data.SqlClient;
 using AbsolutoGas.Dtos;
+using System.Threading.Tasks;
+using Dapper;
 
 namespace AbsolutoGas.Repositorios
 {
@@ -54,7 +56,7 @@ namespace AbsolutoGas.Repositorios
             List<ClienteDto> clientesEncontrados;
             try
             {
-                var query = @"SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia FROM Cliente";
+                var query = @"SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia  FROM Cliente";
 
                 using (var connection = new SqlConnection(_connection))
                 {
