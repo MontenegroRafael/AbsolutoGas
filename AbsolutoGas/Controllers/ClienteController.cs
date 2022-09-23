@@ -39,17 +39,17 @@ namespace AbsolutoGas.Controllers
             return Ok("Adicionado com sucesso!");
         }
 
-        [HttpGet]  // MOSTRAR LISTA DE CLIENTES
-        public IActionResult BuscarTodos()
-        {
-            var clientes = repositorioCliente.BuscarTodos();
+        //[HttpGet]  // MOSTRAR LISTA DE CLIENTES
+        //public IActionResult BuscarTodos()
+        //{
+        //    var clientes = repositorioCliente.BuscarTodos();
 
-            if (clientes == null || !clientes.Any())
-                return NotFound(new { mensage = $"Lista vazia." });
+        //    if (clientes == null || !clientes.Any())
+        //        return NotFound(new { mensage = $"Lista vazia." });
 
-            return Ok(clientes);
+        //    return Ok(clientes);
 
-        }
+        //}
 
         [HttpPut]  // ATUALIZAR CLIENTE POR ID
         public IActionResult Atualizar(AtualizarClienteModel cliente)
@@ -58,18 +58,18 @@ namespace AbsolutoGas.Controllers
             return Ok(cEncontrado);
         }
 
-        [HttpDelete]  // DELETAR CLIENTE POR NOME
-        public IActionResult Remover(string nome)
-        {
-            var cEncontrado = repositorioCliente.BuscarPorNome(nome);
+        //[HttpDelete]  // DELETAR CLIENTE POR NOME
+        //public IActionResult Remover(string nome)
+        //{
+        //    var cEncontrado = repositorioCliente.BuscarPorNome(nome);
 
-            if (cEncontrado == null)
-                return NotFound("Não há nenhum registro com esse nome.");
+        //    if (cEncontrado == null)
+        //        return NotFound("Não há nenhum registro com esse nome.");
 
-            repositorioCliente.Remover(cEncontrado);
+        //    repositorioCliente.Remover(cEncontrado);
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
 
     }
 }

@@ -139,7 +139,21 @@ namespace Client
                     Console.WriteLine("=====================================");
 
                 }
+                // SAIR DO PROGRAMA
+                else if (opcao == 0)
+                {
+                    break;
+                }
 
+                // OPÇÃO INVALIDA
+                else
+                {
+                    Console.WriteLine("**** Opção Invalida! - DIGITE UMA OPÇÃO VALIDA - ");
+                }
+
+                Listar.MostarMenu();
+                Console.Write("Qual Opção Deseja? ");
+                opcao = Convert.ToInt32(Console.ReadLine());
             }
         }
     }

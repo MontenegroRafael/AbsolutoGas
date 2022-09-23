@@ -20,6 +20,7 @@ namespace AbsolutoGas.Models
 
         public Cliente()
         {
+
         }
     }
 }
