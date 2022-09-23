@@ -1,0 +1,89 @@
+CREATE TABLE Cliente
+(
+IdCliente int IDENTITY (1,1) NOT NULL ,
+Nome varchar (255) NOT NULL,
+CPF varchar (11) NOT NULL,
+DataNascimento Date Not Null,
+Telefone varchar (15) NOT NULL,
+Rua varchar (255) NOT NULL,
+Numero varchar (10) NOT NULL,
+Bairro varchar (255) NOT NULL,
+Cidade varchar (255) NOT NULL,
+Referencia varchar (255) NOT NULL,
+
+CONSTRAINT Pk_Cliente PRIMARY KEY (IdCliente),
+);
+
+SELECT * FROM Cliente;
+SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia  FROM Cliente;
+
+
+
+CREATE TABLE Motorista
+(
+IdMotorista int IDENTITY (1,1) NOT NULL ,
+Nome varchar (255) NOT NULL,
+CNH varchar (11) NOT NULL,
+Telefone varchar (11) NOT NULL,
+
+CONSTRAINT Pk_Motorista PRIMARY KEY (IdMotorista),
+);
+
+CREATE TABLE Veiculo
+(
+IdVeiculo int IDENTITY (1,1) NOT NULL ,
+Placa varchar (11) NOT NULL,
+IdMotorista int NOT NULL,
+
+CONSTRAINT Pk_Veiculo PRIMARY KEY (IdVeiculo),
+
+CONSTRAINT Fk_Motorista_Veiculo FOREIGN KEY (IdMotorista)
+REFERENCES Motorista(IdMotorista),
+);
+
+CREATE TABLE Produto
+(
+IdProduto int IDENTITY (1,1) NOT NULL ,
+Valor float NOT NULL,
+
+CONSTRAINT Pk_Produto PRIMARY KEY (IdProduto),
+);
+
+CREATE TABLE TipoPagamento
+(
+IdPagamento int IDENTITY (1,1) NOT NULL,
+Descricao varchar(255) NOT NULL,
+
+CONSTRAINT Pk_TipoPagamento PRIMARY KEY (IdPagamento),
+);
+
+CREATE TABLE Pedido
+(
+IdPedido int IDENTITY (1,1) NOT NULL ,
+DataEntrega Date Not Null,
+HoraEntrega Time Not Null,
+IdCliente int NOT NULL,
+IdProduto int NOT NULL,
+IdPagamento int NOT NULL,
+IdVeiculo int NOT NULL,
+IdMotorista int NOT NULL,
+ValorTotal float NOT NULL,
+Situacao varchar (255) NOT NULL,
+
+CONSTRAINT Pk_Pedido PRIMARY KEY (IdPedido),
+
+CONSTRAINT Fk_Cliente_Pedido FOREIGN KEY (IdCliente)
+REFERENCES Cliente(IdCliente),
+
+CONSTRAINT Fk_Produto_Pedido FOREIGN KEY (IdProduto)
+REFERENCES Produto(IdProduto),
+
+CONSTRAINT Fk_TipoPagamento_Pedido FOREIGN KEY (IdPagamento)
+REFERENCES TipoPagamento(IdPagamento),
+
+CONSTRAINT Fk_Veiculo_Pedido FOREIGN KEY (IdVeiculo)
+REFERENCES Veiculo(IdVeiculo),
+
+CONSTRAINT Fk_Motorista_Pedito FOREIGN KEY (IdMotorista)
+REFERENCES Motorista(IdMotorista),
+);
