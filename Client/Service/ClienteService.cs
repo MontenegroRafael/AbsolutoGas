@@ -6,7 +6,6 @@ using System.Net.Http;
 using Client.Dtos;
 using Client.Models;
 
-
 namespace Client.Service
 {
     public class ClienteService
