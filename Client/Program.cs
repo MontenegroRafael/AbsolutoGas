@@ -20,9 +20,11 @@ namespace Client
         {
             // INSTANCIAR
             ClienteService clienteService = new ClienteService();
-            //VeiculoService veiculoService = new VeiculoService();
-            //SituacaoService situacaoService = new SituacaoService();
-            //AluguelService aluguelService = new AluguelService();
+            MotoristaService motoristaService = new MotoristaService();
+            PedidoService pedidoService = new PedidoService();
+            ProdutoService produtoService = new ProdutoService();
+            VeiculoService veiculoServise = new VeiculoService();
+            
             //ControleFrotaService controleFrotaService = new ControleFrotaService();
 
             Listar.MostarMenu();
