@@ -14,7 +14,7 @@ namespace AbsolutoGas.Repositorios
         private readonly string _connection = @"Data Source=DESKTOP-IR1AB95;Initial Catalog=AbsolutoGas;Integrated Security=True;";//CASA
         //private readonly string _connection = @"Data Source=ITELABD04\SQLEXPRESS;Initial Catalog=AbsolutoGas;Integrated Security=True;";//SENAC
 
-        public bool SalvarCliente(Pedido pedido)
+        public bool SalvarPedido(Pedido pedido)
         {
 
             try

@@ -32,7 +32,7 @@ namespace Client.Menu
             Console.WriteLine("|                                  |                                   |");
             Console.WriteLine("|>>> [ 17 ] - Listar Todos         |>>> [ 21 ] -                       |");
             Console.WriteLine("|>>> [ 18 ] - Cadastrar            |>>> [ 22 ] -                       |");
-            Console.WriteLine("|>>> [ 19 ] - Excluir              |>>> [ 23 ] - Excluir/Id            |");
+            Console.WriteLine("|>>> [ 19 ] - Excluir/Id           |>>> [ 23 ] - Excluir/Id            |");
             Console.WriteLine("|>>> [ 20 ] - Atualizar            |>>> [ 24 ] -                       |");
             Console.WriteLine("|                                  |                                   |");
             Console.WriteLine("|______  Controle de Frota  _______|___________  Finalizar  ___________|");
