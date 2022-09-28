@@ -6,9 +6,22 @@ namespace Client.Models
 {
     public class Veiculo
     {
+        
         public int IdVeiculo { get; set; }
         public string Placa { get; set; }
         public int IdMotorista { get; set; }
 
+        public Veiculo(string placa, int idMotorista)
+        {
+            Placa = placa;
+            IdMotorista = idMotorista;
+        }
+
+        public Veiculo(int idVeiculo, string placa)
+        {
+            IdVeiculo = idVeiculo;
+            Placa = placa;
+        }
     }
+
 }

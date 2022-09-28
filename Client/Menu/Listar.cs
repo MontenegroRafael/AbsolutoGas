@@ -84,6 +84,44 @@ namespace Client.Menu
             }
         }
 
+        public static void VeiculoMostrarIdModelo()
+        {
 
+            try
+            {
+                //string connection = @"Data Source=DESKTOP-IR1AB95;Initial Catalog=Frota;Integrated Security=True;";//CASA
+                string connection = @"Data Source=ITELABD04\SQLEXPRESS;Initial Catalog=Frota;Integrated Security=True;";//SENAC
+                List<Veiculo> listarVeiculos = new List<Veiculo>();
+
+                SqlDataReader resultado;
+                var query = "SELECT IdVeiculo, Placa FROM Veiculo ";
+
+                using (var sql = new SqlConnection(connection))
+                {
+                    SqlCommand command = new SqlCommand(query, sql);
+                    command.Connection.Open();
+                    resultado = command.ExecuteReader();
+
+
+                    while (resultado.Read())
+                    {
+                        listarVeiculos.Add(new Veiculo(resultado.GetInt32(resultado.GetOrdinal("IdVeiculo")),
+                                                     resultado.GetString(resultado.GetOrdinal("Placa"))));
+                    }
+                }
+
+                Console.WriteLine("======= Listagem de Veiculos ========");
+                foreach (Veiculo p in listarVeiculos)
+                {
+                    Console.WriteLine(" Id: " + p.IdVeiculo);
+                    Console.WriteLine(" Modelo: " + p.Placa);
+                    Console.WriteLine("---------------------------");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message);
+            }
+        }
     }
 }

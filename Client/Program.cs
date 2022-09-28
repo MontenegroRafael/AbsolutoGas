@@ -23,7 +23,7 @@ namespace Client
             MotoristaService motoristaService = new MotoristaService();
             PedidoService pedidoService = new PedidoService();
             ProdutoService produtoService = new ProdutoService();
-            VeiculoService veiculoServise = new VeiculoService();
+            VeiculoService veiculoService = new VeiculoService();
             
             //ControleFrotaService controleFrotaService = new ControleFrotaService();
 
@@ -141,6 +141,79 @@ namespace Client
                     Console.WriteLine("=====================================");
 
                 }
+
+                // VEICULO - MOSTRAR LISTA DE VEICULOS
+                else if (opcao == 5)
+                {
+                    var resultado = veiculoService.BuscarTodos();
+                    // MOSTRA OS DADOS NA TELA
+                    foreach (var item in resultado)
+                    {
+                        Console.WriteLine("=====================================");
+                        Console.WriteLine("Id: " + item.IdVeiculo);
+                        Console.WriteLine("Placa: " + item.Placa);
+                        Console.WriteLine("IdMotorista: " + item.IdMotorista);
+                        Console.WriteLine("=====================================");
+                    }
+                }
+
+                // VEICULO - CADASTRAR VEICULO
+                else if (opcao == 6)
+                {
+                    Console.WriteLine("Informe os dados do Veiculo:");
+                    Console.Write("Placa: ");
+                    string Placa = Console.ReadLine();
+                    Console.Write("Id do Motorista: ");
+                    int IdMotorista = Convert.ToInt32(Console.ReadLine());
+
+                    Veiculo veiculo = new Veiculo(Placa, IdMotorista);
+
+                    veiculoService.Salvar(veiculo);
+
+                    Console.WriteLine("=====================================");
+                    Console.WriteLine(" - Veiculo CADASTRADO com sucesso!");
+                    Console.WriteLine("=====================================");
+                }
+
+                // VEICULO - EXCLUIR VEICULO POR PLACA
+                else if (opcao == 7)
+                {
+                    Listar.VeiculoMostrarIdModelo();
+                    Console.Write("Informe a PLACA do veiculo para excluir: ");
+                    string placa = Console.ReadLine();
+
+                    veiculoService.Remover(placa);
+
+                    Console.WriteLine("=====================================");
+                    Console.WriteLine(" - Veiculo DELETADO com sucesso!");
+                    Console.WriteLine("=====================================");
+                }
+
+                // VEICULO - ATUALIZAR VEICULO POR ID
+                else if (opcao == 8)
+                {
+                    Listar.VeiculoMostrarIdModelo();
+                    Console.Write("Informe o Id do veiculo para atualizar: ");
+                    int idVeiculo = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine("=====================================");
+                    Console.WriteLine("Informe os dados do Veiculo:");
+
+                    Console.Write("Placa: ");
+                    string Placa = Console.ReadLine();
+                    Console.Write("Id do Motorista: ");
+                    int IdMotorista = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("=====================================");
+
+                    Veiculo veiculo = new Veiculo(Placa, IdMotorista);
+
+                    veiculoService.Atualizar(idVeiculo, veiculo);
+
+                    Console.WriteLine("=====================================");
+                    Console.WriteLine(" - Veiculo ATUALIZADO com sucesso!");
+                    Console.WriteLine("=====================================");
+                }
+
                 // SAIR DO PROGRAMA
                 else if (opcao == 0)
                 {
