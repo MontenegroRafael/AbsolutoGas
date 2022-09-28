@@ -124,5 +124,39 @@ namespace Client.Service
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public void Atualizar(int idMotorista, Motorista motorista)
+        {
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage response;
+
+            var viewModel = new
+            {
+                IdEncontrar = idMotorista,
+                Atualizar = motorista
+            };
+
+            try
+            {
+                var json = JsonConvert.SerializeObject(viewModel);
+                //monta a request para a api;
+                response = httpClient.PutAsync($"https://localhost:44345/motorista/atualizar", new StringContent(json, Encoding.UTF8, "application/json")).Result;
+                //response = httpClient.PutAsync($"https://localhost:44335/motorista/atualizar", new StringContent(json, Encoding.UTF8, "application/json")).Result;
+
+                var resultado = response.Content.ReadAsStringAsync().Result;
+
+                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    Console.WriteLine(resultado);
+                }
+
+                //converte os dados recebidos e retorna eles como objetos do C#;
+
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

@@ -214,6 +214,84 @@ namespace Client
                     Console.WriteLine("=====================================");
                 }
 
+                // MOTORISTA - MOSTRAR LISTA DE MOTORISTAS
+                if (opcao == 9)
+                {
+                    var resultado = motoristaService.BuscarTodos();
+                    // MOSTRA OS DADOS NA TELA
+                    foreach (var item in resultado)
+                    {
+                        Console.WriteLine("=====================================");
+                        Console.WriteLine("Id: " + item.IdMotorista);
+                        Console.WriteLine("Nome: " + item.Nome);
+                        Console.WriteLine("CNH: " + item.CNH);
+                        Console.WriteLine("Telefone: " + item.Telefone);
+                        Console.WriteLine("=====================================");
+                    }
+                }
+
+                // MOTORISTA - CADASTRAR MOTORISTA
+                else if (opcao == 10)
+                {
+                    Console.WriteLine("Informe os dados do Motorista:");
+                    Console.Write("Nome: ");
+                    string Nome = Console.ReadLine();
+                    Console.Write("CNH: ");
+                    string CNH = Console.ReadLine();
+                    Console.Write("Telefone: ");
+                    string Telefone = Console.ReadLine();
+                    
+                    Motorista motorista = new Motorista(Nome, CNH, Telefone);
+
+                    motoristaService.Salvar(motorista);
+
+                    Console.WriteLine("=====================================");
+                    Console.WriteLine(" - Motorista CADASTRADO com sucesso!");
+                    Console.WriteLine("=====================================");
+                }
+
+                // MOTORISTA - EXCLUIR MOTORISTA POR NOME
+                else if (opcao == 11)
+                {
+                    Listar.MotoristaMostrarIdNome();
+                    Console.Write("Informe o NOME do Motorista para excluir: ");
+                    string nome = Console.ReadLine();
+
+                    motoristaService.Remover(nome);
+
+                    Console.WriteLine("=====================================");
+                    Console.WriteLine(" - Motorista DELETADO com sucesso!");
+                    Console.WriteLine("=====================================");
+                }
+
+                // MOTORISTA - ATUALIZAR MOTORISTA POR ID
+                else if (opcao == 12)
+                {
+                    Listar.MotoristaMostrarIdNome();
+                    Console.Write("Informe o Id do motorista para atualizar: ");
+                    int idMotorista = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine("=====================================");
+                    Console.WriteLine("Informe os dados do Motorista:");
+
+                    Console.Write("Nome: ");
+                    string Nome = Console.ReadLine();
+                    Console.Write("CNH: ");
+                    string CNH = Console.ReadLine();
+                    Console.Write("Telefone: ");
+                    string Telefone = Console.ReadLine();
+                    Console.WriteLine("=====================================");
+
+                    Motorista motorista = new Motorista(Nome, CNH, Telefone);
+
+                    motoristaService.Atualizar(idMotorista, motorista);
+                    Console.WriteLine("=====================================");
+                    Console.WriteLine(" - Motorista ATUALIZADO com sucesso!");
+                    Console.WriteLine("=====================================");
+
+                }
+
+
                 // SAIR DO PROGRAMA
                 else if (opcao == 0)
                 {

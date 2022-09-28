@@ -19,8 +19,8 @@ namespace Client.Service
             try
             {
                 //monta a request para a api;
-                response = httpClient.GetAsync("https://localhost:44345/cliente/buscartodos").Result; // CASA
-                //response = httpClient.GetAsync("https://localhost:44335/cliente/buscartodos").Result; // SENAC
+                //response = httpClient.GetAsync("https://localhost:44345/cliente/buscartodos").Result; // CASA
+                response = httpClient.GetAsync("https://localhost:44345/cliente/buscartodos").Result; // SENAC
                 response.EnsureSuccessStatusCode();
 
                 var resultado = response.Content.ReadAsStringAsync().Result;
@@ -52,8 +52,8 @@ namespace Client.Service
             try
             {
                 //monta a request para a api;
-                response = httpClient.PostAsync("https://localhost:44345/cliente/save", new StringContent(json, Encoding.UTF8, "application/json")).Result; // CASA
-                //response = httpClient.PostAsync("https://localhost:44335/cliente/save", new StringContent(json, Encoding.UTF8, "application/json")).Result; // SENAC
+                //response = httpClient.PostAsync("https://localhost:44345/cliente/save", new StringContent(json, Encoding.UTF8, "application/json")).Result; // CASA
+                response = httpClient.PostAsync("https://localhost:44345/cliente/save", new StringContent(json, Encoding.UTF8, "application/json")).Result; // SENAC
                 response.EnsureSuccessStatusCode();
 
                 var resultado = response.Content.ReadAsStringAsync().Result;
@@ -78,8 +78,8 @@ namespace Client.Service
             {
                 //monta a request para a api;
                 
-                response = httpClient.PostAsync("https://localhost:44345/cliente/salvarviaapi", new StringContent(json, Encoding.UTF8, "application/json")).Result; // CASA
-                //response = httpClient.PostAsync("https://localhost:44335/cliente/salvarviaapi", new StringContent(json, Encoding.UTF8, "application/json")).Result; // SENAC
+                //response = httpClient.PostAsync("https://localhost:44345/cliente/salvarviaapi", new StringContent(json, Encoding.UTF8, "application/json")).Result; // CASA
+                response = httpClient.PostAsync("https://localhost:44345/cliente/salvarviaapi", new StringContent(json, Encoding.UTF8, "application/json")).Result; // SENAC
                 response.EnsureSuccessStatusCode();
 
                 var resultado = response.Content.ReadAsStringAsync().Result;
@@ -107,8 +107,8 @@ namespace Client.Service
             {
                 //var json = JsonConvert.SerializeObject(viewModel);
                 //monta a request para a api;
-                response = httpClient.DeleteAsync($"https://localhost:44335/cliente/remover?nome={nome}").Result; // CASA
-                //response = httpClient.DeleteAsync($"https://localhost:44335/cliente/remover?nome={nome}").Result; // SENAC
+                //response = httpClient.DeleteAsync($"https://localhost:44335/cliente/remover?nome={nome}").Result; // CASA
+                response = httpClient.DeleteAsync($"https://localhost:44335/cliente/remover?nome={nome}").Result; // SENAC
 
                 var resultado = response.Content.ReadAsStringAsync().Result;
 
@@ -141,8 +141,8 @@ namespace Client.Service
             {
                 var json = JsonConvert.SerializeObject(viewModel);
                 //monta a request para a api;
-                response = httpClient.PutAsync($"https://localhost:44345/cliente/atualizar", new StringContent(json, Encoding.UTF8, "application/json")).Result;
-                //response = httpClient.PutAsync($"https://localhost:44335/cliente/atualizar", new StringContent(json, Encoding.UTF8, "application/json")).Result;
+                //response = httpClient.PutAsync($"https://localhost:44345/cliente/atualizar", new StringContent(json, Encoding.UTF8, "application/json")).Result;
+                response = httpClient.PutAsync($"https://localhost:44335/cliente/atualizar", new StringContent(json, Encoding.UTF8, "application/json")).Result;
 
                 var resultado = response.Content.ReadAsStringAsync().Result;
 

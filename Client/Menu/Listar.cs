@@ -123,5 +123,50 @@ namespace Client.Menu
                 Console.WriteLine("Erro: " + ex.Message);
             }
         }
+
+        public static void MotoristaMostrarIdNome()
+        {
+
+            try
+            {
+                //string connection = @"Data Source=DESKTOP-IR1AB95;Initial Catalog=AbsolutoGas;Integrated Security=True;";//CASA
+                string connection = @"Data Source=ITELABD04\SQLEXPRESS;Initial Catalog=AbsolutoGas;Integrated Security=True;";//SENAC
+
+                List<Motorista> listarMotoristas = new List<Motorista>();
+
+                SqlDataReader resultado;
+                var query = "SELECT IdMotorista, Nome, CNH, Telefone FROM Motorista ";
+
+                using (var sql = new SqlConnection(connection))
+                {
+                    SqlCommand command = new SqlCommand(query, sql);
+                    command.Connection.Open();
+                    resultado = command.ExecuteReader();
+
+
+                    while (resultado.Read())
+                    {
+                        listarMotoristas.Add(new Motorista(resultado.GetInt32(resultado.GetOrdinal("IdMotorista")),
+                                                       resultado.GetString(resultado.GetOrdinal("Nome")),
+                                                       resultado.GetString(resultado.GetOrdinal("CNH")),
+                                                       resultado.GetString(resultado.GetOrdinal("Telefone"))));
+                    }
+                }
+                Console.WriteLine("=====================================");
+                Console.WriteLine("======== Listagem de Clientes =======");
+                foreach (Motorista p in listarMotoristas)
+                {
+                    Console.WriteLine(" Id: " + p.IdMotorista);
+                    Console.WriteLine(" Nome: " + p.Nome);
+                    Console.WriteLine(" Nome: " + p.CNH);
+                    Console.WriteLine(" Nome: " + p.Telefone);
+                    Console.WriteLine("---------------------------");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message);
+            }
+        }
     }
 }
