@@ -75,19 +75,19 @@ namespace AbsolutoGas.Repositorios
             }
         }
 
-        public PedidoDto BuscarPorNome(string nome)
+        public PedidoDto BuscarPorId(int idPedido)
         {
             PedidoDto pedidoEncontrados;
             try
             {
                 var query = @"SELECT IdPedido, DataEntrega, HoraEntrega, IdCliente, IdProduto, IdPagamento, IdVeiculo, ValorTotal, Situacao FROM Pedido
-                                      WHERE Nome like CONCAT('%',@nome,'%')";
+                                      WHERE IdPedido like CONCAT('%',@idPedido,'%')";
 
                 using (var connection = new SqlConnection(_connection))
                 {
                     var parametros = new
                     {
-                        nome
+                        idPedido
                     };
                     pedidoEncontrados = connection.QueryFirstOrDefault<PedidoDto>(query, parametros);
                 }

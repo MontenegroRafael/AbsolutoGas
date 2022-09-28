@@ -14,7 +14,7 @@ namespace AbsolutoGas.Controllers
 {
     [Route("[controller]/[action]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class VeiculoController : ControllerBase
     {
         VeiculoAcessoBanco repositorioVeiculo = new VeiculoAcessoBanco();
         //private object _veiculos;
