@@ -25,19 +25,15 @@ namespace Client.Menu
             Console.WriteLine("|                                  |                                   |");
             Console.WriteLine("|>>> [ 9  ] - Listar Todos         |>>> [ 13 ] - Listar Todos          |");
             Console.WriteLine("|>>> [ 10 ] - Cadastrar            |>>> [ 14 ] - Cadastrar             |");
-            Console.WriteLine("|>>> [ 11 ] - Excluir              |>>> [ 15 ] - Excluir               |");
+            Console.WriteLine("|>>> [ 11 ] - Excluir              |>>> [ 15 ] - Excluir/Id            |");
             Console.WriteLine("|>>> [ 12 ] - Atualizar            |>>> [ 16 ] - Atualizar             |");
             Console.WriteLine("|                                  |                                   |");
-            Console.WriteLine("|___________  Produto  ____________|_____________  Pedido _____________|");
+            Console.WriteLine("|___________  Produto  ____________|__________ __ Finalizar ___________|");
             Console.WriteLine("|                                  |                                   |");
-            Console.WriteLine("|>>> [ 17 ] - Listar Todos         |>>> [ 21 ] -                       |");
-            Console.WriteLine("|>>> [ 18 ] - Cadastrar            |>>> [ 22 ] -                       |");
-            Console.WriteLine("|>>> [ 19 ] - Excluir/Id           |>>> [ 23 ] - Excluir/Id            |");
-            Console.WriteLine("|>>> [ 20 ] - Atualizar            |>>> [ 24 ] -                       |");
-            Console.WriteLine("|                                  |                                   |");
-            Console.WriteLine("|______  Controle de Frota  _______|___________  Finalizar  ___________|");
-            Console.WriteLine("|                                  |                                   |");
-            Console.WriteLine("|>>> [    ] - Listar Todos         | >>> [ 0  ] - Sair                 |");
+            Console.WriteLine("|>>> [ 17 ] - Listar Todos         |>>> [ 0  ] - Sair                  |");
+            Console.WriteLine("|>>> [ 18 ] - Cadastrar            |>>>                                |");
+            Console.WriteLine("|>>> [ 19 ] - Excluir/Id           |>>>                                |");
+            Console.WriteLine("|>>> [ 20 ] - Atualizar            |>>>                                |");
             Console.WriteLine("|__________________________________|___________________________________|");
         }
 
