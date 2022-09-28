@@ -215,7 +215,7 @@ namespace Client
                 }
 
                 // MOTORISTA - MOSTRAR LISTA DE MOTORISTAS
-                if (opcao == 9)
+                else if (opcao == 9)
                 {
                     var resultado = motoristaService.BuscarTodos();
                     // MOSTRA OS DADOS NA TELA
@@ -307,6 +307,7 @@ namespace Client
                 Listar.MostarMenu();
                 Console.Write("Qual Opção Deseja? ");
                 opcao = Convert.ToInt32(Console.ReadLine());
+            
             }
         }
     }

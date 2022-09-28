@@ -68,19 +68,19 @@ namespace AbsolutoGas.Repositorios
             }
         }
 
-        public VeiculoDto BuscarPorId(int id)
+        public VeiculoDto BuscarPorModelo(string placa)
         {
             VeiculoDto veiculoEncontrados;
             try
             {
                 var query = @"SELECT IdVeiculo, Placa, IdMotorista FROM Veiculo
-                                      WHERE IdVeiculo like CONCAT('%',@id,'%')";
+                                      WHERE Placa like CONCAT('%',@placa,'%')";
 
                 using (var connection = new SqlConnection(_connection))
                 {
                     var parametros = new
                     {
-                        id
+                        placa
                     };
                     veiculoEncontrados = connection.QueryFirstOrDefault<VeiculoDto>(query, parametros);
                 }

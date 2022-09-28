@@ -19,7 +19,7 @@ namespace AbsolutoGas.Controllers
                 return Ok("Não foram informados dados");
 
             if (salvarMotoristaViewModel.Motorista == null)
-                return Ok("Dados do cliente não informados.");
+                return Ok("Dados do Motoristae não informados.");
 
             var resultado = repositorioMotorista.SalvarMotorista(salvarMotoristaViewModel.Motorista);
 
