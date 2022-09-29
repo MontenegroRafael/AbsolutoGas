@@ -163,6 +163,8 @@ namespace Client
                     Console.WriteLine("Informe os dados do Veiculo:");
                     Console.Write("Placa: ");
                     string Placa = Console.ReadLine();
+
+                    Listar.MotoristaMostrarIdNome();
                     Console.Write("Id do Motorista: ");
                     int IdMotorista = Convert.ToInt32(Console.ReadLine());
 

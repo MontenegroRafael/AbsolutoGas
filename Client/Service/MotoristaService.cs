@@ -107,7 +107,7 @@ namespace Client.Service
             {
                 //var json = JsonConvert.SerializeObject(viewModel);
                 //monta a request para a api;
-                response = httpClient.DeleteAsync($"https://localhost:44335/motorista/remover?nome={nome}").Result; // CASA
+                response = httpClient.DeleteAsync($"https://localhost:44345/motorista/remover?nome={nome}").Result; // CASA
                 //response = httpClient.DeleteAsync($"https://localhost:44335/motorista/remover?nome={nome}").Result; // SENAC
 
                 var resultado = response.Content.ReadAsStringAsync().Result;
