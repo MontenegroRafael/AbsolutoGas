@@ -149,7 +149,7 @@ namespace Client.Menu
                     }
                 }
                 Console.WriteLine("=====================================");
-                Console.WriteLine("======== Listagem de Clientes =======");
+                Console.WriteLine("======== Listagem de Motoristas =======");
                 foreach (Motorista p in listarMotoristas)
                 {
                     Console.WriteLine(" Id: " + p.IdMotorista);
