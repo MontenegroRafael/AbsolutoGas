@@ -15,9 +15,6 @@ CONSTRAINT Pk_Cliente PRIMARY KEY (IdCliente),
 );
 
 SELECT * FROM Cliente;
-SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia  FROM Cliente;
-
-
 
 CREATE TABLE Motorista
 (
@@ -28,6 +25,8 @@ Telefone varchar (11) NOT NULL,
 
 CONSTRAINT Pk_Motorista PRIMARY KEY (IdMotorista),
 );
+
+SELECT * FROM Motorista;
 
 CREATE TABLE Veiculo
 (
@@ -40,6 +39,8 @@ CONSTRAINT Pk_Veiculo PRIMARY KEY (IdVeiculo),
 CONSTRAINT Fk_Motorista_Veiculo FOREIGN KEY (IdMotorista)
 REFERENCES Motorista(IdMotorista),
 );
+SELECT * FROM Veiculo;
+
 
 CREATE TABLE Produto
 (
@@ -49,6 +50,9 @@ Valor float NOT NULL,
 CONSTRAINT Pk_Produto PRIMARY KEY (IdProduto),
 );
 
+SELECT * FROM Produto;
+
+
 CREATE TABLE TipoPagamento
 (
 IdPagamento int IDENTITY (1,1) NOT NULL,
@@ -56,6 +60,7 @@ Descricao varchar(255) NOT NULL,
 
 CONSTRAINT Pk_TipoPagamento PRIMARY KEY (IdPagamento),
 );
+
 
 CREATE TABLE Pedido
 (
