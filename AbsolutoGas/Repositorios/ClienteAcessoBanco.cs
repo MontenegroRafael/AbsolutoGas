@@ -20,8 +20,8 @@ namespace AbsolutoGas.Repositorios
             try
             {
                 var query = @"INSERT INTO Cliente 
-                              (Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia)
-                              VALUES (@nome,@CPF,@dataNascimento,@telefone,@rua,@numero,@bairro,@cidade,@referencia)";
+                              (Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia, TipoContato)
+                              VALUES (@nome,@CPF,@dataNascimento,@telefone,@rua,@numero,@bairro,@cidade,@referencia,@tipoContato)";
 
                 using (var sql = new SqlConnection(_connection))
 
@@ -36,6 +36,7 @@ namespace AbsolutoGas.Repositorios
                     command.Parameters.AddWithValue("@bairro", cliente.Bairro);
                     command.Parameters.AddWithValue("@cidade", cliente.Cidade);
                     command.Parameters.AddWithValue("@referencia", cliente.Referencia);
+                    command.Parameters.AddWithValue("@tipoContato", cliente.TipoContato);
                     command.Connection.Open();
                     command.ExecuteNonQuery();
                 }
@@ -56,7 +57,7 @@ namespace AbsolutoGas.Repositorios
             List<ClienteDto> clientesEncontrados;
             try
             {
-                var query = @"SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia  FROM Cliente";
+                var query = @"SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia, TipoContato  FROM Cliente";
 
                 using (var connection = new SqlConnection(_connection))
                 {
@@ -81,7 +82,7 @@ namespace AbsolutoGas.Repositorios
             ClienteDto clientesEncontrados;
             try
             {
-                var query = @"SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia FROM Cliente
+                var query = @"SELECT IdCliente, Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia, TipoContato FROM Cliente
                                       WHERE Nome like CONCAT('%',@nome,'%')";
 
                 using (var connection = new SqlConnection(_connection))
@@ -108,7 +109,7 @@ namespace AbsolutoGas.Repositorios
         {
             try
             {
-                var query = @"UPDATE Cliente SET Nome = @nome, CPF = @CPF, DataNascimento = @dataNascimento, Telefone = @telefone, Rua = @rua, Numero = @numero, Bairro = @bairro, Cidade = @cidade, Referencia = @referencia 
+                var query = @"UPDATE Cliente SET Nome = @nome, CPF = @CPF, DataNascimento = @dataNascimento, Telefone = @telefone, Rua = @rua, Numero = @numero, Bairro = @bairro, Cidade = @cidade, Referencia = @referencia, TipoContato = @tipoContato
                                 WHERE IdCliente = @idCliente";
 
                 using (var sql = new SqlConnection(_connection))
