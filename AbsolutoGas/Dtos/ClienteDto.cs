@@ -17,5 +17,6 @@ namespace AbsolutoGas.Dtos
         public string Bairro { get; set; }
         public string Cidade { get; set; }
         public string Referencia { get; set; }
+        public string TipoContato { get; set; }
     }
 }
