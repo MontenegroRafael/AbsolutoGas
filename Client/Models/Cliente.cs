@@ -16,12 +16,13 @@ namespace Client.Models
         public string Bairro { get; set; }
         public string Cidade { get; set; }
         public string Referencia { get; set; }
+        public string TipoContato { get; set; }
 
         public Cliente()
         {
         }
 
-        public Cliente(string nome, string cPF, DateTime dataNascimento, string telefone, string rua, string numero, string bairro, string cidade, string referencia)
+        public Cliente(string nome, string cPF, DateTime dataNascimento, string telefone, string rua, string numero, string bairro, string cidade, string referencia, string tipoContato)
         {
             Nome = nome;
             CPF = cPF;
@@ -32,6 +33,7 @@ namespace Client.Models
             Bairro = bairro;
             Cidade = cidade;
             Referencia = referencia;
+            TipoContato = tipoContato;
         }
 
         public Cliente(int idCliente, string nome, string telefone)

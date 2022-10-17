@@ -77,8 +77,10 @@ namespace Client
                     string Cidade = Console.ReadLine();
                     Console.Write("Referencia: ");
                     string Referencia = Console.ReadLine();
+                    Console.Write("Tipo de Contato[WhatsApp/Comercial/Residencial]: ");
+                    string TipoContato = Console.ReadLine();
 
-                    Cliente cliente = new Cliente(Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia);
+                    Cliente cliente = new Cliente(Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia, TipoContato);
 
                     clienteService.Salvar(cliente);
 
@@ -130,10 +132,12 @@ namespace Client
                     string Cidade = Console.ReadLine();
                     Console.Write("Referencia: ");
                     string Referencia = Console.ReadLine();
+                    Console.Write("Tipo de Contato[WhatsApp/Comercial/Residencial]: ");
+                    string TipoContato = Console.ReadLine();
                     Console.WriteLine("=====================================");
 
 
-                    Cliente cliente = new Cliente(Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia);
+                    Cliente cliente = new Cliente(Nome, CPF, DataNascimento, Telefone, Rua, Numero, Bairro, Cidade, Referencia, TipoContato);
 
                     clienteService.Atualizar(idCliente, cliente);
                     Console.WriteLine("=====================================");
