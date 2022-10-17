@@ -138,6 +138,33 @@ namespace AbsolutoGas.Repositorios
                 throw new Exception(ex.Message);
             }
         }
+
+        public bool Remover2(int idCliente)
+        {
+            try
+            {
+                var query = @"DELETE FROM Cliente WHERE IdCliente = @idCliente";
+
+                using (var sql = new SqlConnection(_connection))
+                {
+                    SqlCommand command = new SqlCommand(query, sql);
+                    command.Connection.Open();
+                    command.Parameters.AddWithValue("@idCliente", idCliente);
+                    
+                    command.ExecuteNonQuery();
+                }
+                Console.WriteLine("Cliente Removido!");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Não é possível deletar um cliente se tiver dentro de um PEDIDO");
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+
+        }
+
         public bool Atualizar(int idCliente, Cliente cliente)
         {
             try

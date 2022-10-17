@@ -3,6 +3,7 @@ using System.Linq;
 using AbsolutoGas.Models;
 using AbsolutoGas.Repositorios;
 using AbsolutoGas.ViewModels;
+using System;
 
 namespace AbsolutoGas.Controllers
 {
@@ -37,6 +38,18 @@ namespace AbsolutoGas.Controllers
             if (res.IdCliente > 0) return Ok(res);
             return BadRequest("Não foi possivel atualizar funcionario. ");
 
+
+        }
+
+        [HttpDelete] // DELETAR CLIENTE POR NOME - VIA REQUEST
+        
+        public IActionResult DeletarCliente(int idCliente)
+        {
+            var resultado = repositorioCliente.Remover2(idCliente);
+            Exception exception = new Exception("Excluido com sucesso");
+            if (resultado) return Ok(exception);
+            exception = new Exception("Erro ao deletar");
+            return Ok(exception);
 
         }
 
