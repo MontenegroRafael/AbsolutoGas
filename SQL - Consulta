@@ -95,3 +95,5 @@ REFERENCES Motorista(IdMotorista),
 
 select * from Cliente c 
 where CONCAT(c.IdCliente, c.Bairro, c.Cidade, c.CPF, c.DataNascimento, c.Nome, c.Numero, c.Referencia, c.Rua, c.Telefone) like CONCAT('%','Patrick','%')
+
+ALTER TABLE Cliente ADD TipoContato varchar (255);
