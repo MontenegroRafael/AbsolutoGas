@@ -105,6 +105,39 @@ namespace AbsolutoGas.Repositorios
 
         }
 
+        public Cliente Atualizar2(int idCliente, Cliente cliente)
+        {
+            try
+            {
+                var query = @"UPDATE Cliente SET Nome = @nome, CPF = @CPF, DataNascimento = @dataNascimento, Telefone = @telefone, Rua = @rua, Numero = @numero, Bairro = @bairro, Cidade = @cidade, Referencia = @referencia, TipoContato = @tipoContato
+                                WHERE IdCliente = @idCliente";
+
+                using (var sql = new SqlConnection(_connection))
+
+                {
+                    SqlCommand command = new SqlCommand(query, sql);
+                    command.Parameters.AddWithValue("@nome", cliente.Nome);
+                    command.Parameters.AddWithValue("@CPF", cliente.CPF);
+                    command.Parameters.AddWithValue("@dataNascimento", cliente.DataNascimento);
+                    command.Parameters.AddWithValue("@telefone", cliente.Telefone);
+                    command.Parameters.AddWithValue("@rua", cliente.Rua);
+                    command.Parameters.AddWithValue("@numero", cliente.Numero);
+                    command.Parameters.AddWithValue("@bairro", cliente.Bairro);
+                    command.Parameters.AddWithValue("@cidade", cliente.Cidade);
+                    command.Parameters.AddWithValue("@referencia", cliente.Referencia);
+                    command.Parameters.AddWithValue("@idCliente", idCliente);
+                    command.Connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                cliente.IdCliente = idCliente;
+                return cliente;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message);
+                throw new Exception(ex.Message);
+            }
+        }
         public bool Atualizar(int idCliente, Cliente cliente)
         {
             try

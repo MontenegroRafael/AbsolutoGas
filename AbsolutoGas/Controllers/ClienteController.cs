@@ -28,6 +28,18 @@ namespace AbsolutoGas.Controllers
             return Ok("Houve um problema ao salvar. Cliente não cadastrada.");
         }
 
+        [HttpPut] // ATUALIZAR CLIENTE POR ID - VIA REQUEST
+        public IActionResult Atualizar2(AtualizarClienteModel atualizarcliente)
+        {
+
+            var res = repositorioCliente.Atualizar2(atualizarcliente.IdEncontrar, atualizarcliente.Atualizar);
+
+            if (res.IdCliente > 0) return Ok(res);
+            return BadRequest("Não foi possivel atualizar funcionario. ");
+
+
+        }
+
         [HttpPost]  // CADASTRAR CLIENTE
         public IActionResult Save(Cliente cliente)
         {
@@ -39,21 +51,6 @@ namespace AbsolutoGas.Controllers
             return Ok("Adicionado com sucesso!");
         }
 
-        [HttpPost]  // CADASTRAR CLIENTE VIA REQUEST
-        public IActionResult BuscarTodos2([FromBody] SalvarClienteModel salvarClienteViewModel)
-        {
-            if (salvarClienteViewModel == null)
-                return Ok("Não foram informados dados");
-
-            if (salvarClienteViewModel.Cliente == null)
-                return Ok("Dados do cliente não informados.");
-
-            var resultado = repositorioCliente.SalvarCliente(salvarClienteViewModel.Cliente);
-
-            if (resultado) return Ok("Cliente cadastrado com sucesso.");
-
-            return Ok("Houve um problema ao salvar. Cliente não cadastrada.");
-        }
 
         [HttpGet]  // MOSTRAR LISTA DE CLIENTES
         public IActionResult BuscarTodos()
