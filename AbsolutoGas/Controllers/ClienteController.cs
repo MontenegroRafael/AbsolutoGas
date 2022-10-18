@@ -16,11 +16,11 @@ namespace AbsolutoGas.Controllers
         [HttpPost]  // CADASTRAR CLIENTE VIA REQUEST
         public IActionResult Salvar2([FromBody] SalvarClienteModel salvarClienteViewModel)
         {
-            if (salvarClienteViewModel == null)
-                return Ok("Não foram informados dados");
+            //if (salvarClienteViewModel == null)
+            //    return Ok("Não foram informados dados");
 
-            if (salvarClienteViewModel.Cliente == null)
-                return Ok("Dados do cliente não informados.");
+            //if (salvarClienteViewModel.Cliente == null)
+            //    return Ok("Dados do cliente não informados.");
 
             var resultado = repositorioCliente.SalvarCliente(salvarClienteViewModel.Cliente);
 
