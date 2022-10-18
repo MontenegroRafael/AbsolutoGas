@@ -43,7 +43,7 @@ namespace AbsolutoGas.Controllers
 
         [HttpDelete] // DELETAR CLIENTE POR NOME - VIA REQUEST
         
-        public IActionResult DeletarCliente(int idCliente)
+        public IActionResult DeletarCliente2(int idCliente)
         {
             var resultado = repositorioCliente.Remover2(idCliente);
             Exception exception = new Exception("Excluido com sucesso");
@@ -51,6 +51,17 @@ namespace AbsolutoGas.Controllers
             exception = new Exception("Erro ao deletar");
             return Ok(exception);
 
+        }
+
+        [HttpGet] // BUSCAR CLIENTES - VIA REQUEST
+        public IActionResult BuscarTodos2()
+        {
+            var resultado = repositorioCliente.BuscarTodos();
+
+            if (resultado == null || !resultado.Any())
+                return NotFound();
+
+            return Ok(resultado);
         }
 
         [HttpPost]  // CADASTRAR CLIENTE
