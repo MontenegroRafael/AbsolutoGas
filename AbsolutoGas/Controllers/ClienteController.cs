@@ -64,6 +64,17 @@ namespace AbsolutoGas.Controllers
             return Ok(resultado);
         }
 
+        [HttpGet] // BUSCAR CLIENTES POR NOME - VIA REQUEST
+        public IActionResult BuscarPorNome(string nome)
+        {
+            var resultado = repositorioCliente.BuscarPorNome(nome);
+
+            if (resultado == null)
+                return NotFound();
+
+            return Ok(resultado);
+        }
+
         [HttpPost]  // CADASTRAR CLIENTE
         public IActionResult Save(Cliente cliente)
         {
