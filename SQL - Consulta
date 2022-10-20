@@ -13,8 +13,11 @@ Referencia varchar (255) NOT NULL,
 
 CONSTRAINT Pk_Cliente PRIMARY KEY (IdCliente),
 );
+Alter table Cliente Add TipoContato varchar (255);
+
 
 SELECT * FROM Cliente;
+
 
 CREATE TABLE Motorista
 (
@@ -49,6 +52,9 @@ Valor float NOT NULL,
 
 CONSTRAINT Pk_Produto PRIMARY KEY (IdProduto),
 );
+Alter table Produto Add Descricao varchar (255);
+
+INSERT INTO Produto (Valor, Descricao) VALUES ('120', 'P13');
 
 SELECT * FROM Produto;
 
@@ -61,6 +67,11 @@ Descricao varchar(255) NOT NULL,
 CONSTRAINT Pk_TipoPagamento PRIMARY KEY (IdPagamento),
 );
 
+INSERT INTO TipoPagamento (Descricao) VALUES ('Cartão');
+INSERT INTO TipoPagamento (Descricao) VALUES ('PIX');
+INSERT INTO TipoPagamento (Descricao) VALUES ('Dinheiro');
+
+SELECT * FROM TipoPagamento;
 
 CREATE TABLE Pedido
 (
@@ -93,7 +104,12 @@ CONSTRAINT Fk_Motorista_Pedito FOREIGN KEY (IdMotorista)
 REFERENCES Motorista(IdMotorista),
 );
 
-select * from Cliente c 
-where CONCAT(c.IdCliente, c.Bairro, c.Cidade, c.CPF, c.DataNascimento, c.Nome, c.Numero, c.Referencia, c.Rua, c.Telefone) like CONCAT('%','Patrick','%')
+SELECT * FROM Pedido;
 
-ALTER TABLE Cliente ADD TipoContato varchar (255);
+CREATE TABLE TipoContato
+(
+IdCliente int NOT NULL,
+Nome varchar(30) NOT NULL,
+
+CONSTRAINT Pk_TipoPagamento PRIMARY KEY (IdPagamento),
+);
