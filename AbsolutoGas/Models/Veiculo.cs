@@ -9,6 +9,6 @@ namespace AbsolutoGas.Models
     {
         public int IdVeiculo { get; set; }
         public string Placa { get; set; }
-        public int IdMotorista { get; set; }
+        
     }
 }

@@ -9,12 +9,10 @@ namespace Client.Models
         
         public int IdVeiculo { get; set; }
         public string Placa { get; set; }
-        public int IdMotorista { get; set; }
 
-        public Veiculo(string placa, int idMotorista)
+        public Veiculo(string placa)
         {
             Placa = placa;
-            IdMotorista = idMotorista;
         }
 
         public Veiculo(int idVeiculo, string placa)

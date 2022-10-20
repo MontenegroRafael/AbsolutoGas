@@ -19,15 +19,14 @@ namespace AbsolutoGas.Repositorios
 
             try
             {
-                var query = @"INSERT INTO Veiculo (Placa, IdMotorista)
-                              VALUES (@placa, @idMotorista)";
+                var query = @"INSERT INTO Veiculo (Placa)
+                              VALUES (@placa)";
 
                 using (var sql = new SqlConnection(_connection))
 
                 {
                     SqlCommand command = new SqlCommand(query, sql);
                     command.Parameters.AddWithValue("@placa", veiculo.Placa);
-                    command.Parameters.AddWithValue("@idMotorista", veiculo.IdMotorista);
                     command.Connection.Open();
                     command.ExecuteNonQuery();
                 }
@@ -48,7 +47,7 @@ namespace AbsolutoGas.Repositorios
             List<VeiculoDto> veiculoEncontrados;
             try
             {
-                var query = @"SELECT IdVeiculo, Placa, IdMotorista  FROM Veiculo";
+                var query = @"SELECT IdVeiculo, Placa  FROM Veiculo";
 
                 using (var connection = new SqlConnection(_connection))
                 {
@@ -73,7 +72,7 @@ namespace AbsolutoGas.Repositorios
             VeiculoDto veiculoEncontrados;
             try
             {
-                var query = @"SELECT IdVeiculo, Placa, IdMotorista FROM Veiculo
+                var query = @"SELECT IdVeiculo, Placa FROM Veiculo
                                       WHERE Placa like CONCAT('%',@placa,'%')";
 
                 using (var connection = new SqlConnection(_connection))
@@ -100,7 +99,7 @@ namespace AbsolutoGas.Repositorios
         {
             try
             {
-                var query = @"UPDATE Veiculo SET Placa = @placa, IdMotorista = @idMotorista 
+                var query = @"UPDATE Veiculo SET Placa = @placa
                                 WHERE IdVeiculo = @idVeiculo";
 
                 using (var sql = new SqlConnection(_connection))
@@ -108,7 +107,6 @@ namespace AbsolutoGas.Repositorios
                 {
                     SqlCommand command = new SqlCommand(query, sql);
                     command.Parameters.AddWithValue("@placa", veiculo.Placa);
-                    command.Parameters.AddWithValue("@idMotorista", veiculo.IdMotorista);
                     command.Connection.Open();
                     command.ExecuteNonQuery();
                 }

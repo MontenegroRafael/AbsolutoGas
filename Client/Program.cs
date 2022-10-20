@@ -156,7 +156,6 @@ namespace Client
                         Console.WriteLine("=====================================");
                         Console.WriteLine("Id: " + item.IdVeiculo);
                         Console.WriteLine("Placa: " + item.Placa);
-                        Console.WriteLine("IdMotorista: " + item.IdMotorista);
                         Console.WriteLine("=====================================");
                     }
                 }
@@ -168,11 +167,9 @@ namespace Client
                     Console.Write("Placa: ");
                     string Placa = Console.ReadLine();
 
-                    Listar.MotoristaMostrarIdNome();
-                    Console.Write("Id do Motorista: ");
-                    int IdMotorista = Convert.ToInt32(Console.ReadLine());
+                    
 
-                    Veiculo veiculo = new Veiculo(Placa, IdMotorista);
+                    Veiculo veiculo = new Veiculo(Placa);
 
                     veiculoService.Salvar(veiculo);
 
@@ -207,11 +204,10 @@ namespace Client
 
                     Console.Write("Placa: ");
                     string Placa = Console.ReadLine();
-                    Console.Write("Id do Motorista: ");
-                    int IdMotorista = Convert.ToInt32(Console.ReadLine());
+                    
                     Console.WriteLine("=====================================");
 
-                    Veiculo veiculo = new Veiculo(Placa, IdMotorista);
+                    Veiculo veiculo = new Veiculo(Placa);
 
                     veiculoService.Atualizar(idVeiculo, veiculo);
 
