@@ -19,8 +19,8 @@ namespace AbsolutoGas.Repositorios
 
             try
             {
-                var query = @"INSERT INTO Pedido (DataEntrega, HoraEntrega, IdCliente, IdProduto, IdPagamento, IdVeiculo, ValorTotal, Situacao)
-                              VALUES (@dataEntrega, @horaEntrega, @idCliente, @idProduto, @idPagamento, @idVeiculo, @valorTotal, @situacao)";
+                var query = @"INSERT INTO Pedido (DataEntrega, HoraEntrega, IdCliente, IdProduto, IdPagamento, IdVeiculo, IdMotorista, ValorTotal, Situacao)
+                              VALUES (@dataEntrega, @horaEntrega, @idCliente, @idProduto, @idPagamento, @idVeiculo, @idMotorista, @valorTotal, @situacao)";
 
 
                 using (var sql = new SqlConnection(_connection))
@@ -33,6 +33,7 @@ namespace AbsolutoGas.Repositorios
                     command.Parameters.AddWithValue("@idProduto", pedido.IdProduto);
                     command.Parameters.AddWithValue("@idPagamento", pedido.IdPagamento);
                     command.Parameters.AddWithValue("@idVeiculo", pedido.IdVeiculo);
+                    command.Parameters.AddWithValue("@idMotorista", pedido.IdMotorista);
                     command.Parameters.AddWithValue("@valorTotal", pedido.ValorTotal);
                     command.Parameters.AddWithValue("@situacao", pedido.Situacao);
                     command.Connection.Open();

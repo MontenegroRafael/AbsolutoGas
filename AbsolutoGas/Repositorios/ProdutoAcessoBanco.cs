@@ -19,14 +19,15 @@ namespace AbsolutoGas.Repositorios
 
             try
             {
-                var query = @"INSERT INTO Produto (Valor)
-                              VALUES (@valor)";
+                var query = @"INSERT INTO Produto (Valor, Descricao)
+                              VALUES (@valor @descricao)";
 
                 using (var sql = new SqlConnection(_connection))
 
                 {
                     SqlCommand command = new SqlCommand(query, sql);
                     command.Parameters.AddWithValue("@valor", produto.Valor);
+                    command.Parameters.AddWithValue("@descricao", produto.Descricao);
                     command.Connection.Open();
                     command.ExecuteNonQuery();
                 }
@@ -47,7 +48,7 @@ namespace AbsolutoGas.Repositorios
             List<ProdutoDto> produtoEncontrados;
             try
             {
-                var query = @"SELECT IdProduto, Valor  FROM Produto";
+                var query = @"SELECT IdProduto, Valor, Descricao  FROM Produto";
 
                 using (var connection = new SqlConnection(_connection))
                 {
@@ -72,7 +73,7 @@ namespace AbsolutoGas.Repositorios
             ProdutoDto produtoEncontrados;
             try
             {
-                var query = @"SELECT IdMotorista, Valor FROM Produto
+                var query = @"SELECT Valor ,Descricao FROM Produto
                                       WHERE IdProduto like CONCAT('%',@id,'%')";
 
                 using (var connection = new SqlConnection(_connection))
@@ -99,7 +100,7 @@ namespace AbsolutoGas.Repositorios
         {
             try
             {
-                var query = @"UPDATE Produto SET Valor = @valor 
+                var query = @"UPDATE Produto SET Valor = @valor, Descricao = @descricao
                                 WHERE IdProduto = @idProduto";
 
                 using (var sql = new SqlConnection(_connection))
@@ -107,6 +108,7 @@ namespace AbsolutoGas.Repositorios
                 {
                     SqlCommand command = new SqlCommand(query, sql);
                     command.Parameters.AddWithValue("@valor", produto.Valor);
+                    command.Parameters.AddWithValue("@descricao", produto.Descricao);
                     command.Parameters.AddWithValue("@idProduto", IdProduto);
                     command.Connection.Open();
                     command.ExecuteNonQuery();

@@ -9,5 +9,6 @@ namespace AbsolutoGas.Models
     {
         public int IdProduto { get; set; }
         public double Valor { get; set; }
+        public string Descricao { get; set; }
     }
 }

@@ -18,6 +18,16 @@ namespace AbsolutoGas.Controllers
     {
         PedidoAcessoBanco repositorioPedido = new PedidoAcessoBanco();
 
+        [HttpPost] // CADASTRAR PEDIDO VIA REQUEST
+        public IActionResult Save2(SalvarPedidoModel salvarpedidomodel)
+        {
+            var resultado = repositorioPedido.SalvarPedido(salvarpedidomodel.Pedido);
+
+            if (resultado) return Ok("Pedido Salvo Com Sucesso");
+
+            return Ok("Não foi possível salvar esse Pedido");
+        }
+
         [HttpPost]  // CADASTRAR PEDIDO
         public IActionResult Save(Pedido pedido)
         {

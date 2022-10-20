@@ -125,7 +125,9 @@ namespace AbsolutoGas.Repositorios
                     command.Parameters.AddWithValue("@bairro", cliente.Bairro);
                     command.Parameters.AddWithValue("@cidade", cliente.Cidade);
                     command.Parameters.AddWithValue("@referencia", cliente.Referencia);
+                    command.Parameters.AddWithValue("@tipoContato", cliente.TipoContato);
                     command.Parameters.AddWithValue("@idCliente", idCliente);
+
                     command.Connection.Open();
                     command.ExecuteNonQuery();
                 }
