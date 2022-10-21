@@ -12,20 +12,20 @@ namespace AbsolutoGas.Controllers
     {
         MotoristaAcessoBanco repositorioMotorista = new MotoristaAcessoBanco();
 
-        [HttpPost]  // CADASTRAR MOTORISTA VIA REQUEST
-        public IActionResult Salvar2([FromBody] SalvarMotoristaModel salvarMotoristaViewModel)
+        [HttpPost]  // CADASTRAR MOTORISTA e  VEICULO VIA REQUEST
+        public IActionResult Salvar2(SalvarMotoristaModel salvarMotoristaViewModel)
         {
             if (salvarMotoristaViewModel == null)
                 return Ok("Não foram informados dados");
 
             if (salvarMotoristaViewModel.Motorista == null)
-                return Ok("Dados do Motoristae não informados.");
+                return Ok("Dados do Motorista ou Veiculo não informados.");
 
-            var resultado = repositorioMotorista.SalvarMotorista(salvarMotoristaViewModel.Motorista);
+            var resultado = repositorioMotorista.SalvarMotorista2(salvarMotoristaViewModel.Motorista, salvarMotoristaViewModel.Veiculo);
 
-            if (resultado) return Ok("Motorista cadastrado com sucesso.");
+            if (resultado) return Ok("Motorista e Veiculo cadastrado com sucesso.");
 
-            return Ok("Houve um problema ao salvar. Motorista não cadastrado.");
+            return Ok("Houve um problema ao salvar. Motorista ou Veiculo não cadastrado.");
         }
 
         [HttpPost]  // CADASTRAR MOTORISTA

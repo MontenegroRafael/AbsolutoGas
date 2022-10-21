@@ -14,6 +14,43 @@ namespace AbsolutoGas.Repositorios
         //private readonly string _connection = @"Data Source=DESKTOP-IR1AB95;Initial Catalog=AbsolutoGas;Integrated Security=True;";//CASA
         private readonly string _connection = @"Data Source=ITELABD04\SQLEXPRESS;Initial Catalog=AbsolutoGas;Integrated Security=True;";//SENAC
 
+        public bool SalvarMotorista2(Motorista motorista, Veiculo veiculo)
+        {
+
+            try
+            {
+                var query1 = @"INSERT INTO Motorista (Nome, CNH, Telefone)
+                              VALUES (@nome,@CNH,@telefone)";
+                var query2 = @"INSERT INTO Veiculo (Placa)
+                              VALUES (@placa)";
+                using (var sql1 = new SqlConnection(_connection))
+                using (var sql2 = new SqlConnection(_connection))
+
+                {
+                    SqlCommand command1 = new SqlCommand(query1, sql1);
+                    SqlCommand command2 = new SqlCommand(query2, sql2);
+
+                    command1.Parameters.AddWithValue("@nome", motorista.Nome);
+                    command1.Parameters.AddWithValue("@CNH", motorista.CNH);
+                    command1.Parameters.AddWithValue("@telefone", motorista.Telefone);
+                    command1.Connection.Open();
+                    command1.ExecuteNonQuery();
+                    command2.Parameters.AddWithValue("@placa", veiculo.Placa);
+                    command2.Connection.Open();
+                    command2.ExecuteNonQuery();
+                }
+
+                Console.WriteLine("Motorista e Veiculo cadastrado com sucesso.");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro: " + ex.Message);
+                return false;
+            }
+
+        }
+
         public bool SalvarMotorista(Motorista motorista)
         {
 
@@ -21,16 +58,19 @@ namespace AbsolutoGas.Repositorios
             {
                 var query = @"INSERT INTO Motorista (Nome, CNH, Telefone)
                               VALUES (@nome,@CNH,@telefone)";
-
+               
                 using (var sql = new SqlConnection(_connection))
 
                 {
                     SqlCommand command = new SqlCommand(query, sql);
+                    
+
                     command.Parameters.AddWithValue("@nome", motorista.Nome);
                     command.Parameters.AddWithValue("@CNH", motorista.CNH);
                     command.Parameters.AddWithValue("@telefone", motorista.Telefone);
                     command.Connection.Open();
                     command.ExecuteNonQuery();
+                   
                 }
 
                 Console.WriteLine("Motorista cadastrado com sucesso.");

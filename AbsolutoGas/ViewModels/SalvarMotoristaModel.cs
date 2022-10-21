@@ -9,5 +9,6 @@ namespace AbsolutoGas.ViewModels
     public class SalvarMotoristaModel
     {
         public Motorista Motorista { get; set; }
+        public Veiculo Veiculo { get; set; }
     }
 }
