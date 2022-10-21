@@ -28,7 +28,7 @@ namespace AbsolutoGas.Controllers
             return Ok("Houve um problema ao salvar. Motorista ou Veiculo não cadastrado.");
         }
 
-        [HttpPost]  // CADASTRAR MOTORISTA
+        [HttpPost]  // CADASTRAR MOTORISTA VIA CONSOLE
         public IActionResult Save(Motorista motorista)
         {
             if (motorista == null)
@@ -39,7 +39,7 @@ namespace AbsolutoGas.Controllers
             return Ok("Adicionado com sucesso!");
         }
 
-        [HttpGet]  // MOSTRAR LISTA DE MOTORISTA
+        [HttpGet]  // MOSTRAR LISTA DE MOTORISTA VIA CONSOLE
         public IActionResult BuscarTodos()
         {
             var motorista = repositorioMotorista.BuscarTodos();
@@ -51,14 +51,14 @@ namespace AbsolutoGas.Controllers
 
         }
 
-        [HttpPut]  // ATUALIZAR MOTORISTA POR ID
+        [HttpPut]  // ATUALIZAR MOTORISTA POR ID VIA CONSOLE
         public IActionResult Atualizar(AtualizarMotoristaModel motorista)
         {
             var mEncontrado = repositorioMotorista.Atualizar(motorista.IdEncontrar, motorista.Atualizar);
             return Ok(mEncontrado);
         }
 
-        [HttpDelete]  // DELETAR MOTORISTA POR NOME
+        [HttpDelete]  // DELETAR MOTORISTA POR NOME VIA CONSOLE
         public IActionResult Remover(string nome)
         {
             var mEncontrado = repositorioMotorista.BuscarPorNome(nome);

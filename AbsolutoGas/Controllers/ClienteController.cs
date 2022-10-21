@@ -75,7 +75,7 @@ namespace AbsolutoGas.Controllers
             return Ok(resultado);
         }
 
-        [HttpPost]  // CADASTRAR CLIENTE
+        [HttpPost]  // CADASTRAR CLIENTE VIA CONSOLE
         public IActionResult Save(Cliente cliente)
         {
             if (cliente == null)
@@ -87,7 +87,7 @@ namespace AbsolutoGas.Controllers
         }
 
 
-        [HttpGet]  // MOSTRAR LISTA DE CLIENTES
+        [HttpGet]  // MOSTRAR LISTA DE CLIENTES VIA CONSOLE
         public IActionResult BuscarTodos()
         {
             var clientes = repositorioCliente.BuscarTodos();
@@ -99,14 +99,14 @@ namespace AbsolutoGas.Controllers
 
         }
 
-        [HttpPut]  // ATUALIZAR CLIENTE POR ID
+        [HttpPut]  // ATUALIZAR CLIENTE POR ID VIA CONSOLE
         public IActionResult Atualizar(AtualizarClienteModel cliente)
         {
             var cEncontrado = repositorioCliente.Atualizar(cliente.IdEncontrar, cliente.Atualizar);
             return Ok(cEncontrado);
         }
 
-        [HttpDelete]  // DELETAR CLIENTE POR NOME
+        [HttpDelete]  // DELETAR CLIENTE POR NOME VIA CONSOLE
         public IActionResult Remover(string nome)
         {
             var cEncontrado = repositorioCliente.BuscarPorNome(nome);

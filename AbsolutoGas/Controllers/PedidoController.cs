@@ -28,7 +28,7 @@ namespace AbsolutoGas.Controllers
             return Ok("Não foi possível salvar esse Pedido");
         }
 
-        [HttpPost]  // CADASTRAR PEDIDO
+        [HttpPost]  // CADASTRAR PEDIDO VIA CONSOLE
         public IActionResult Save(Pedido pedido)
         {
             if (pedido == null)
@@ -39,7 +39,7 @@ namespace AbsolutoGas.Controllers
             return Ok("Adicionado com sucesso!");
         }
 
-        [HttpGet]  // MOSTRAR LISTA DE PEDIDO
+        [HttpGet]  // MOSTRAR LISTA DE PEDIDO VIA CONSOLE
         public IActionResult BuscarTodos()
         {
             var pedido = repositorioPedido.BuscarTodos();
@@ -52,14 +52,14 @@ namespace AbsolutoGas.Controllers
         }
 
 
-        [HttpPut]  // ATUALIZAR PEDIDO POR ID
+        [HttpPut]  // ATUALIZAR PEDIDO POR ID VIA CONSOLE
         public IActionResult Atualizar(AtualizarPedidoModel pedido)
         {
             var aEncontrado = repositorioPedido.Atualizar(pedido.IdEncontrar, pedido.Atualizar);
             return Ok(aEncontrado);
         }
 
-        [HttpDelete]  // DELETAR PEDIDO POR ID
+        [HttpDelete]  // DELETAR PEDIDO POR ID VIA CONSOLE
         public IActionResult Remover(int idPedido)
         {
             var pEncontrado = repositorioPedido.BuscarPorId(idPedido);

@@ -20,7 +20,7 @@ namespace AbsolutoGas.Controllers
         //private object _veiculos;
 
 
-        [HttpPost]  // CADASTRAR VEICULO
+        [HttpPost]  // CADASTRAR VEICULO VIA CONSOLE
         public IActionResult Save(Veiculo veiculo)
         {
             if (veiculo == null)
@@ -31,7 +31,7 @@ namespace AbsolutoGas.Controllers
             return Ok("Adicionado com sucesso!");
         }
 
-        [HttpGet]  // MOSTRAR LISTA DE VEICULOS
+        [HttpGet]  // MOSTRAR LISTA DE VEICULOS VIA CONSOLE
         public IActionResult BuscarTodos()
         {
             var veiculo = repositorioVeiculo.BuscarTodos();
@@ -43,14 +43,14 @@ namespace AbsolutoGas.Controllers
 
         }
 
-        [HttpPut]  // ATUALIZAR VEICULO POR ID
+        [HttpPut]  // ATUALIZAR VEICULO POR ID VIA CONSOLE
         public IActionResult Atualizar(AtualizarVeiculoModel veiculo)
         {
             var cEncontrado = repositorioVeiculo.Atualizar(veiculo.IdEncontrar, veiculo.Atualizar);
             return Ok(cEncontrado);
         }
 
-        [HttpDelete]  // DELETAR VEICULO POR PLACA
+        [HttpDelete]  // DELETAR VEICULO POR PLACA VIA CONSOLE
         public IActionResult Remover(string placa)
         {
             var vEncontrado = repositorioVeiculo.BuscarPorModelo(placa);
