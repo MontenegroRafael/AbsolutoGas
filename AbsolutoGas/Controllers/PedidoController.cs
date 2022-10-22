@@ -35,6 +35,18 @@ namespace AbsolutoGas.Controllers
             return Ok(aEncontrado);
         }
 
+        [HttpGet]  // MOSTRAR LISTA DE PEDIDO VIA REQUEST
+        public IActionResult BuscarTodos2()
+        {
+            var pedido = repositorioPedido.BuscarTodos();
+
+            if (pedido == null || !pedido.Any())
+                return NotFound(new { mensage = $"Lista vazia." });
+
+            return Ok(pedido);
+
+        }
+
         [HttpPost]  // CADASTRAR PEDIDO VIA CONSOLE
         public IActionResult Save(Pedido pedido)
         {
@@ -45,6 +57,7 @@ namespace AbsolutoGas.Controllers
 
             return Ok("Adicionado com sucesso!");
         }
+
 
         [HttpGet]  // MOSTRAR LISTA DE PEDIDO VIA CONSOLE
         public IActionResult BuscarTodos()
