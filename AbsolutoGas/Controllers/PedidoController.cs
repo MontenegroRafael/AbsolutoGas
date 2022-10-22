@@ -28,6 +28,13 @@ namespace AbsolutoGas.Controllers
             return Ok("Não foi possível salvar esse Pedido");
         }
 
+        [HttpPut]  // ATUALIZAR PEDIDO POR ID VIA REQUEST
+        public IActionResult Atualizar2(AtualizarPedidoModel pedido)
+        {
+            var aEncontrado = repositorioPedido.Atualizar(pedido.IdEncontrar, pedido.Atualizar);
+            return Ok(aEncontrado);
+        }
+
         [HttpPost]  // CADASTRAR PEDIDO VIA CONSOLE
         public IActionResult Save(Pedido pedido)
         {

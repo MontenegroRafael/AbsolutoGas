@@ -11,8 +11,8 @@ namespace AbsolutoGas.Repositorios
 {
     public class PedidoAcessoBanco
     {
-        //private readonly string _connection = @"Data Source=DESKTOP-IR1AB95;Initial Catalog=AbsolutoGas;Integrated Security=True;";//CASA
-        private readonly string _connection = @"Data Source=ITELABD04\SQLEXPRESS;Initial Catalog=AbsolutoGas;Integrated Security=True;";//SENAC
+        private readonly string _connection = @"Data Source=DESKTOP-IR1AB95;Initial Catalog=AbsolutoGas;Integrated Security=True;";//CASA
+        //private readonly string _connection = @"Data Source=ITELABD04\SQLEXPRESS;Initial Catalog=AbsolutoGas;Integrated Security=True;";//SENAC
 
         public bool SalvarPedido(Pedido pedido)
         {
@@ -123,10 +123,11 @@ namespace AbsolutoGas.Repositorios
                     command.Parameters.AddWithValue("@idVeiculo", pedido.IdVeiculo);
                     command.Parameters.AddWithValue("@valorTotal", pedido.ValorTotal);
                     command.Parameters.AddWithValue("@situacao", pedido.Situacao);
+                    command.Parameters.AddWithValue("@idPedido", IdPedido);
                     command.Connection.Open();
                     command.ExecuteNonQuery();
                 }
-
+                Console.WriteLine("Pedido atualizado com sucesso.");
                 return true;
             }
             catch (Exception ex)
